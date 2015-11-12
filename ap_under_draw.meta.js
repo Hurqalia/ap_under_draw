@@ -3,7 +3,7 @@
 // @name           IITC plugin: Show AP under draw.
 // @author         hurqalia22
 // @category       Info
-// @version        0.1.3.20151025.001
+// @version        0.1.4.20151025.001
 // @namespace      https://github.com/Hurqalia/ap_under_draw
 // @updateURL      https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.meta.js
 // @downloadURL    https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.user.js
