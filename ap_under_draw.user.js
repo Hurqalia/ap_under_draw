@@ -3,7 +3,7 @@
 // @name           IITC plugin: Show AP under draw.
 // @author         hurqalia22
 // @category       Info
-// @version        0.1.3.20151025.001
+// @version        0.1.4.20151025.001
 // @namespace      https://github.com/Hurqalia/ap_under_draw
 // @updateURL      https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.meta.js
 // @downloadURL    https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.user.js
@@ -157,7 +157,6 @@ function wrapper(plugin_info) {
 
                 if (nodeIn) {
                     t._w_.portals[window.portals[guid].options.data.team].push(guid);
-                    console.log(window.portals[guid].options.data.title + ' ' + guid);
                     found = true;
                 }            
             });
@@ -228,7 +227,7 @@ function wrapper(plugin_info) {
                         }
                     }
                     if (fields) {
-                        $.each(window.getPortalFields(guid), function(k, v) { console.log('Field : ' + window.getPortalFields(guid)); if (t._w_.fields[letter].indexOf(v) === -1) { t._w_.fields[letter].push(v); console.log('add field'); } });
+                        $.each(window.getPortalFields(guid), function(k, v) { if (t._w_.fields[letter].indexOf(v) === -1) { t._w_.fields[letter].push(v); } });
                     }
                 });
             });
