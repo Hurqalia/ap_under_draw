@@ -3,7 +3,7 @@
 // @name           IITC plugin: Show AP under draw.
 // @author         hurqalia22
 // @category       Info
-// @version        0.1.2.20151025.001
+// @version        0.1.3.20151025.001
 // @namespace      https://github.com/Hurqalia/ap_under_draw
 // @updateURL      https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.meta.js
 // @downloadURL    https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.user.js
@@ -24,6 +24,8 @@ function wrapper(plugin_info) {
 
     var apud_css_ui = "data:text/css;base64,LmFwdWQtYm94IHsgZGlzcGxheTogYm94Ow0KZGlzcGxheTogZmxleDsNCm1hcmdpbjogLTEycHg7DQpwb3NpdGlvbjogcmVsYXRpdmU7DQp9DQouYXB1ZC1ib3gubW9iaWxlIHsNCmJhY2tncm91bmQ6IHRyYW5zcGFyZW50Ow0KcGFkZGluZzogMDsNCmJvcmRlcjogMCBub25lOw0KbWFyZ2luOiAwOw0KaGVpZ2h0OiAxMDAlOw0Kd2lkdGg6IDEwMCU7DQpsZWZ0OiAwOw0KdG9wOiAwOw0KcG9zaXRpb246IGFic29sdXRlOw0Kb3ZlcmZsb3c6IGF1dG87DQp9DQoNCi5hcHVkLWJveCBuYXYgew0KZGlzcGxheTogYmxvY2s7DQptaW4taGVpZ2h0OiAxNTBweDsNCndpZHRoOiAxNTBweDsNCmJvcmRlci1yaWdodDogMXB4IHNvbGlkICMyMEE4QjE7DQp2ZXJ0aWNhbC1hbGlnbjogdG9wOw0KZmxleC1zaHJpbms6IDA7DQpmbGV4LWdyb3c6IDA7DQpib3gtc2hyaW5rOiAwOw0KYm94LWdyb3c6IDA7DQp9DQouYXB1ZC1ib3ggLnRhYnMgew0KcG9zaXRpb246IHJlbGF0aXZlOw0KcGFkZGluZzogMTBweDsNCmZsZXgtc2hyaW5rOiAxOw0KZmxleC1ncm93OiAxOw0KYm94LXNocmluazogMTsNCmJveC1ncm93OiAxOw0KfQ0KLmFwdWQtYm94IG5hdiBhIHsNCmNvbG9yOiB3aGl0ZTsNCnBhZGRpbmc6IDAuNWVtOw0KZGlzcGxheTogYmxvY2s7DQp0ZXh0LWhlaWdodDogNDBweDsNCnRleHQtd2VpZ2h0OiBib2xkOw0KYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICMyMEE4QjE7DQp0ZXh0LWRlY29yYXRpb246IG5vbmU7DQp9DQouYXB1ZC1ib3ggbmF2IGE6bGFzdC1jaGlsZCB7DQpib3JkZXItYm90dG9tLXdpZHRoOiAwOw0KfQ0KLmFwdWQtYm94IG5hdiBhOiBob3ZlciB7DQpiYWNrZ3JvdW5kLWNvbG9yOiAjMDgzQzRFOw0KfQ0KLmFwdWQtYm94IG5hdiBhLmNsaWNrZWQgew0KYmFja2dyb3VuZC1jb2xvcjogIzIwQThCMTsNCn0NCi5hcHVkLWJveCBzZWN0aW9uIGgyIHsNCmZvbnQtc2l6ZTogMThweDsNCm1hcmdpbjogMCAwIDAuNGVtIDA7DQpwYWRkaW5nOiAwOw0KfQ0KLmFwdWQtYm94IHNlY3Rpb24gaDIgc21hbGwgew0KY29sb3I6ICNDQ0NDQ0M7DQp2ZXJ0aWNhbC1hbGlnbjogdG9wOw0KfQ0KLmFwdWQtYm94IGhyIHsNCmJvcmRlcjogMDsNCmhlaWdodDogMXB4Ow0KYmFja2dyb3VuZC1jb2xvcjogIzIwQThCMQ0KfQ0KLmFwdWQtYm94IHAgew0KbWFyZ2luOiAwLjVlbSAwOw0KfQ==";
     var apud_ico_wr = "data:image/png;base64,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";
+    var apud_ico_ap = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAGxQTFRF////YGBgcHBwgICAa2treXl5hoaGZGRkgICAj4+Pra2ta2trdHR0e3t7Xl5eubm5bGxsenp6Xl5eZWVlbGxsc3Nzenp6gYGBiIiIj4+PlpaWl5eXnZ2dnp6epKSkpaWlq6urrKyss7Ozurq6UmiuoQAAABJ0Uk5TABAQEBMTE1RUVFRwcHDGxuTki1z6agAAAHZJREFUGNNlz8kOgkAURcFSUcAJkaZxaBz//x9dgNGEysvJ3T4mqvdPBa9/8Fhj/RwKN27cMTZJKUlS3+vh8j1c4VyiHAunf9AVC6uiK1B0EJf1rl5EMUYRWtt2qzVshPlhc8iCEIIATZ6Z5U2OvIH98Wc//d0HokUK52AarhEAAAAASUVORK5CYII=";
+    
     
     // PLUGIN START ////////////////////////////////////////////////////////
     window.plugin.apunderdraw = function() {};
@@ -55,9 +57,9 @@ function wrapper(plugin_info) {
             this.draw_datas = {};
             this._w_        = {};
             this.summ       = { 
-                'E': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0 }, 
-                'R': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0 }, 
-                'N': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0 },
+                'E': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 }, 
+                'R': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 }, 
+                'N': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 },
                 'details' : []
             };
             return t;
@@ -71,13 +73,15 @@ function wrapper(plugin_info) {
                     'in' : { 'E' : [], 'R' : [] },
                     'out' : { 'E' : [], 'R' : [] } 
                 },
-                'count_links' : { 'E' : 0, 'R' : 0, 'N' : 0 },
+                'count_links'  : { 'E' : 0, 'R' : 0, 'N' : 0 },
+                'fields'       : { 'E' : [], 'R' : [] },
+                'count_fields' : { 'E' : 0, 'R' : 0, 'N' : 0 },
                 'sums'        : { 
                     'type'  : datas.type,
                     'color' : datas.color,
-                    'E': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0 }, 
-                    'R': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0 }, 
-                    'N': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0 } 
+                    'E': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 }, 
+                    'R': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 }, 
+                    'N': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 } 
                 }
             };
             t.draw_datas = datas;
@@ -153,6 +157,7 @@ function wrapper(plugin_info) {
 
                 if (nodeIn) {
                     t._w_.portals[window.portals[guid].options.data.team].push(guid);
+                    console.log(window.portals[guid].options.data.title + ' ' + guid);
                     found = true;
                 }            
             });
@@ -187,6 +192,17 @@ function wrapper(plugin_info) {
             t._w_.sums['E']['l'] = t._w_.count_links['E'];
             t._w_.sums['R']['l'] = t._w_.count_links['R'];
         };
+        APUnderDraw.prototype.countFields = function() {
+            var t = this;
+            $.each(['E', 'R'], function(i, letter) {
+                if (t._w_.fields[letter].length) {
+                    t._w_.count_fields[letter] = t._w_.fields[letter].length;
+                }
+            });
+            t._w_.sums['E']['f'] = t._w_.count_fields['E'];
+            t._w_.sums['R']['f'] = t._w_.count_fields['R'];
+            
+        };
         APUnderDraw.prototype.countAPPortal = function() {
             var t = this;
             $.each(['E', 'R', 'N'], function(i, letter) {
@@ -211,9 +227,13 @@ function wrapper(plugin_info) {
                             $.each(window.getPortalLinks(guid)['in'], function(k,v) { t._w_.links.in[letter].push(v); });
                         }
                     }
+                    if (fields) {
+                        $.each(window.getPortalFields(guid), function(k, v) { console.log('Field : ' + window.getPortalFields(guid)); if (t._w_.fields[letter].indexOf(v) === -1) { t._w_.fields[letter].push(v); console.log('add field'); } });
+                    }
                 });
             });
             t.countLinks();
+            t.countFields();
         };
         APUnderDraw.prototype.summerize = function() {
             var t = this;
@@ -235,13 +255,14 @@ function wrapper(plugin_info) {
                 var html = "<table class='audtable' style='margin-bottom:5px; border: 1px solid #20A8B1;'>" 
                 + "<thead style='background-color:" + table_color +";'><tr><th colspan='5'>You are " + title_team  + "</th></tr></thead>"
                 + "<tbody>"
-                + "<tr><td colspan='3'>Enemy portals : " + datas[team]['p'] + "&nbsp;&nbsp;Resos : " + datas[team]['r'] + "&nbsp;&nbsp;Links : " +  datas[team]['l'] + " </td></tr>"
+                + "<tr><td colspan='3'>Enemy portals : " + datas[team]['p'] + "&nbsp;&nbsp;Resos : " + datas[team]['r'] + "&nbsp;&nbsp;Links : " +  datas[team]['l'] + "&nbsp;&nbsp;Fields : " + datas[team]['f'] + "</td></tr>"
                 + "<tr><td>Resos destroyed &amp; capture+full deployed</td><td align='right'>" + datas[team]['ap'] + "</td><td>&nbsp;AP</td></tr>"
                 + "<tr><td>Links destroyed</td><td align='right'>" + (datas[team]['l'] * 187) + "</td><td>&nbsp;AP</td></tr>"
-                + "<tr style='font-style:italic; color:#aaa;'><td>Total Enemy</td><td align='right'>" + (datas[team]['ap'] + (datas[team]['l'] * 187)) + "</td><td>&nbsp;AP</td></tr>"
+                + "<tr><td>Fields destroyed</td><td align='right'>" + (datas[team]['f'] * 750) + "</td><td>&nbsp;AP</td></tr>"
+                + "<tr style='font-style:italic; color:#aaa;'><td>Total Enemy</td><td align='right'>" + (datas[team]['ap'] + (datas[team]['l'] * 187) + (datas[team]['f'] * 750) ) + "</td><td>&nbsp;AP</td></tr>"
                 + "<tr><td colspan='3'>Neutral portals : " + datas['N']['p'] + "</td></tr>"
                 + "<tr><td>Capture+full deployed</td><td align='right'>" + datas['N']['ap'] + "</td><td>&nbsp;AP</td></tr>"
-                + "<tr style='color:yellow;'><td>Total</td><td align='right'>" + (datas[team]['ap'] + (datas[team]['l'] * 187) + datas['N']['ap'] ) + "</td><td>&nbsp;AP</td></tr>"
+                + "<tr style='color:yellow;'><td>Total</td><td align='right'>" + (datas[team]['ap'] + (datas[team]['l'] * 187) + (datas[team]['f'] * 750) + datas['N']['ap'] ) + "</td><td>&nbsp;AP</td></tr>"
                 + "</tbody>"
                 + "</table>";
                 return html;
@@ -310,8 +331,8 @@ function wrapper(plugin_info) {
     // toolbox menu
     window.plugin.apunderdraw.addButtons = function() {
         $('head').append('<style>.audtable { border-collapse:collapse; width: 100%; } .audtable > thead > tr > th, .audtable > tbody> tr > td{ border:1px solid #20A8B1;  font-size:12px; padding:3px; font-weight:normal; }</style>');
-        $("head").append('<link rel="stylesheet" type="text/css" href="' + apud_css_ui + '" />')
-        $('#toolbox').append('&nbsp;<a onclick="window.plugin.apunderdraw.doTheJob();">AP Under Draw</a>');
+        $("head").append('<link rel="stylesheet" type="text/css" href="' + apud_css_ui + '" />')        
+        $('.leaflet-draw-toolbar-top').append('<a onclick="window.plugin.apunderdraw.doTheJob();" class="leaflet-draw-draw-calculator" href="#" title="Show AP under Draw" style="background-image:url(' + apud_ico_ap + ')!important; background-repeat:no-repeat;"></a>');
     };
 
     // runrun
@@ -333,5 +354,3 @@ var info = {};
 if (typeof GM_info !== 'undefined' && GM_info && GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);
-
-
