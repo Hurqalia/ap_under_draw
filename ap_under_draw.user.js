@@ -3,7 +3,7 @@
 // @name           IITC plugin: Show AP under draw.
 // @author         hurqalia22
 // @category       Info
-// @version        0.1.4.20151025.001
+// @version        0.1.5.20151025.001
 // @namespace      https://github.com/Hurqalia/ap_under_draw
 // @updateURL      https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.meta.js
 // @downloadURL    https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.user.js
@@ -179,13 +179,18 @@ function wrapper(plugin_info) {
         };
         APUnderDraw.prototype.countLinks = function() {
             var t = this;
+            var uniq = function(arr) {
+                return arr.sort().filter(function(item, position, ary) {
+                    return !position || item != ary[position - 1];
+                })
+            };
             $.each(['E', 'R'], function(i, letter) {
                 if (t._w_.links.out[letter].length && t._w_.links.in[letter].length) {
-                    t._w_.count_links[letter] = $.unique(t._w_.links.out[letter].concat(t._w_.links.in[letter])).length;
+                    t._w_.count_links[letter] = uniq(t._w_.links.out[letter].concat(t._w_.links.in[letter])).length;
                 } else if (t._w_.links.in[letter].length) {
-                    t._w_.count_links[letter] = $.unique(t._w_.links.in[letter]).length;
+                    t._w_.count_links[letter] = uniq(t._w_.links.in[letter]).length;
                 } else if (t._w_.links.out[letter].length) {
-                    t._w_.count_links[letter] = $.unique(t._w_.links.out[letter]).length;
+                    t._w_.count_links[letter] = uniq(t._w_.links.out[letter]).length;
                 }
             });
             t._w_.sums['E']['l'] = t._w_.count_links['E'];
