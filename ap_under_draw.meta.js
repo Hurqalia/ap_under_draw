@@ -3,12 +3,12 @@
 // @name           IITC plugin: Show AP under a polygon/draw area.
 // @author         hurqalia22, keithel
 // @category       Info
-// @version        0.1.5.20160911.001
+// @version        0.1.5.20160911.002
 // @namespace      https://github.com/keithel/ap_under_draw
 // @updateURL      https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.meta.js
 // @downloadURL    https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.user.js
 // @installURL     https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.user.js
-// @description    [keithel-2016-09-11-001] Show AP under draw.
+// @description    [keithel-2016-09-11-002] Show AP under draw.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
