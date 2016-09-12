@@ -96,14 +96,14 @@ function wrapper(plugin_info) {
                             return;
                         }
                         t.countAPPortal();
-                        t.summerize();
+                        t.summarize();
                         break;
                     case 'polygon':
                         if (!t.underPolygon()) {
                             return;
                         }
                         t.countAPPortal();
-                        t.summerize();
+                        t.summarize();
                         break;
                     default:
                         console.log('AP Under Draw ERROR : invalid draw type (' + t.draw_datas.type + ')'); 
@@ -239,7 +239,7 @@ function wrapper(plugin_info) {
             t.countLinks();
             t.countFields();
         };
-        APUnderDraw.prototype.summerize = function() {
+        APUnderDraw.prototype.summarize = function() {
             var t = this;
 
             t.summ.details.push(t._w_.sums);
