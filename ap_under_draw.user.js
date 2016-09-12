@@ -1,14 +1,14 @@
 // ==UserScript==
 // @id             iitc-plugin-apunderdraw
-// @name           IITC plugin: Show AP under draw.
-// @author         hurqalia22
+// @name           IITC plugin:  Show AP under a polygon/draw area.
+// @author         hurqalia22, keithel
 // @category       Info
-// @version        0.1.5.20151025.001
-// @namespace      https://github.com/Hurqalia/ap_under_draw
-// @updateURL      https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.meta.js
-// @downloadURL    https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.user.js
-// @installURL     https://github.com/Hurqalia/ap_under_draw/raw/master/ap_under_draw.user.js
-// @description    [hurqalia22-2015-10-25-001] Show AP under draw.
+// @version        0.1.5.20160911.001
+// @namespace      https://github.com/keithel/ap_under_draw
+// @updateURL      https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.meta.js
+// @downloadURL    https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.user.js
+// @installURL     https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.user.js
+// @description    [keithel-2016-09-11-001] Show AP under draw.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -18,8 +18,8 @@
 
 function wrapper(plugin_info) {
     if(typeof window.plugin !== 'function') window.plugin = function() {};
-    plugin_info.buildName = 'hurqalia22';
-    plugin_info.dateTimeVersion = '20151007.001';
+    plugin_info.buildName = 'keithel';
+    plugin_info.dateTimeVersion = '20160911.001';
     plugin_info.pluginId = 'apunderdraw';
 
     var apud_css_ui = "data:text/css;base64,LmFwdWQtYm94IHsgZGlzcGxheTogYm94Ow0KZGlzcGxheTogZmxleDsNCm1hcmdpbjogLTEycHg7DQpwb3NpdGlvbjogcmVsYXRpdmU7DQp9DQouYXB1ZC1ib3gubW9iaWxlIHsNCmJhY2tncm91bmQ6IHRyYW5zcGFyZW50Ow0KcGFkZGluZzogMDsNCmJvcmRlcjogMCBub25lOw0KbWFyZ2luOiAwOw0KaGVpZ2h0OiAxMDAlOw0Kd2lkdGg6IDEwMCU7DQpsZWZ0OiAwOw0KdG9wOiAwOw0KcG9zaXRpb246IGFic29sdXRlOw0Kb3ZlcmZsb3c6IGF1dG87DQp9DQoNCi5hcHVkLWJveCBuYXYgew0KZGlzcGxheTogYmxvY2s7DQptaW4taGVpZ2h0OiAxNTBweDsNCndpZHRoOiAxNTBweDsNCmJvcmRlci1yaWdodDogMXB4IHNvbGlkICMyMEE4QjE7DQp2ZXJ0aWNhbC1hbGlnbjogdG9wOw0KZmxleC1zaHJpbms6IDA7DQpmbGV4LWdyb3c6IDA7DQpib3gtc2hyaW5rOiAwOw0KYm94LWdyb3c6IDA7DQp9DQouYXB1ZC1ib3ggLnRhYnMgew0KcG9zaXRpb246IHJlbGF0aXZlOw0KcGFkZGluZzogMTBweDsNCmZsZXgtc2hyaW5rOiAxOw0KZmxleC1ncm93OiAxOw0KYm94LXNocmluazogMTsNCmJveC1ncm93OiAxOw0KfQ0KLmFwdWQtYm94IG5hdiBhIHsNCmNvbG9yOiB3aGl0ZTsNCnBhZGRpbmc6IDAuNWVtOw0KZGlzcGxheTogYmxvY2s7DQp0ZXh0LWhlaWdodDogNDBweDsNCnRleHQtd2VpZ2h0OiBib2xkOw0KYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICMyMEE4QjE7DQp0ZXh0LWRlY29yYXRpb246IG5vbmU7DQp9DQouYXB1ZC1ib3ggbmF2IGE6bGFzdC1jaGlsZCB7DQpib3JkZXItYm90dG9tLXdpZHRoOiAwOw0KfQ0KLmFwdWQtYm94IG5hdiBhOiBob3ZlciB7DQpiYWNrZ3JvdW5kLWNvbG9yOiAjMDgzQzRFOw0KfQ0KLmFwdWQtYm94IG5hdiBhLmNsaWNrZWQgew0KYmFja2dyb3VuZC1jb2xvcjogIzIwQThCMTsNCn0NCi5hcHVkLWJveCBzZWN0aW9uIGgyIHsNCmZvbnQtc2l6ZTogMThweDsNCm1hcmdpbjogMCAwIDAuNGVtIDA7DQpwYWRkaW5nOiAwOw0KfQ0KLmFwdWQtYm94IHNlY3Rpb24gaDIgc21hbGwgew0KY29sb3I6ICNDQ0NDQ0M7DQp2ZXJ0aWNhbC1hbGlnbjogdG9wOw0KfQ0KLmFwdWQtYm94IGhyIHsNCmJvcmRlcjogMDsNCmhlaWdodDogMXB4Ow0KYmFja2dyb3VuZC1jb2xvcjogIzIwQThCMQ0KfQ0KLmFwdWQtYm94IHAgew0KbWFyZ2luOiAwLjVlbSAwOw0KfQ==";
