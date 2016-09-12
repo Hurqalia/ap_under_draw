@@ -254,8 +254,8 @@ function wrapper(plugin_info) {
             var t = this;
 
             var template_table = function( team, datas ) {
-                var title_team  = (team == 'R') ? 'Resistance' : 'Enlightened';
-                var table_color = (team == 'R') ? 'blue' : 'green';
+                var title_team  = (team == 'R') ? 'an Enlightened' : 'a Resistant';
+                var table_color = (team == 'R') ? 'green' : 'blue';
                 var html = "<table class='audtable' style='margin-bottom:5px; border: 1px solid #20A8B1;'>" 
                 + "<thead style='background-color:" + table_color +";'><tr><th colspan='5'>" + title_team  + "</th></tr></thead>"
                 + "<tbody>"
