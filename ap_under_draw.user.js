@@ -60,6 +60,7 @@ function wrapper(plugin_info) {
                 'E': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 },
                 'R': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 },
                 'N': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 },
+                'All': { 'p' : 0 },
                 'details' : []
             };
             return t;
@@ -81,7 +82,8 @@ function wrapper(plugin_info) {
                     'color' : datas.color,
                     'E': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 },
                     'R': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 },
-                    'N': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 }
+                    'N': { 'ap' : 0, 'l' : 0, 'r' : 0, 'p' : 0, 'f' : 0 },
+                    'All': { 'p' : 0 },
                 }
             };
             t.draw_datas = datas;
@@ -223,6 +225,7 @@ function wrapper(plugin_info) {
                     t._w_.sums[letter]['ap'] += (portal_ap.destroyResoAp + portal_ap.captureAp);
                     t._w_.sums[letter]['r']  += window.portals[guid].options.data.resCount;
                     t._w_.sums[letter]['p']++;
+                    t._w_.sums['All']['p']++;
                     if (getPortalLinksCount(guid)) {
                         if (window.getPortalLinks(guid)['out'].length) {
                             $.each(window.getPortalLinks(guid)['out'], function(k,v) { t._w_.links.out[letter].push(v); });
@@ -244,7 +247,7 @@ function wrapper(plugin_info) {
 
             t.summ.details.push(t._w_.sums);
 
-            $.each(['E', 'R', 'N'], function(i, letter) {
+            $.each(['E', 'R', 'N', 'All'], function(i, letter) {
                 $.each(t._w_.sums[letter], function(key, value) {
                     t.summ[letter][key] += value;
                 });
@@ -271,6 +274,14 @@ function wrapper(plugin_info) {
                 + "</table>";
                 return html;
             };
+            var template_all_table = function( datas ) {
+                return "<table class='audtable' style='margin-bottom:5px; border: 1px solid #20A8B1;'>"
+                + "<thead><tr><th colspan='5'>All</th></tr></thead>"
+                + "<tbody>"
+                + "<tr><td colspan='3'>Total portals : " + datas['All']['p'] + "</td></tr>"
+                + "</tbody>"
+                + "</table>";
+            };
 
             var html = '<div class="apud-box">';
             var nav  = '<nav>';
@@ -281,14 +292,26 @@ function wrapper(plugin_info) {
                 $.each(t.summ.details, function(id) {
                     count_tab = id + 1;
                     nav  += '<a href="#" data-section="apud-menu-' + count_tab + '">' +  t.summ.details[id].type + ' #' + count_tab + ' </a>';
-                    tabs += '<section id="apud-menu-' + count_tab + '" style="display:none;"><div>' + template_table('E', t.summ.details[id]) + template_table('R', t.summ.details[id]) +'</div></section>';
+                    tabs += '<section id="apud-menu-' + count_tab + '" style="display:none;"><div>'
+                          + template_table('E', t.summ.details[id])
+                          + template_table('R', t.summ.details[id])
+                          + template_all_table(t.summ.details[id])
+                          +'</div></section>';
                 });
                 count_tab++;
                 nav  += '<a href="#" data-section="apud-menu-' + count_tab + '" class="clicked"> Total </a>';
-                tabs += '<section id="apud-menu-' + count_tab + '"><div>' + template_table('E', t.summ) + template_table('R', t.summ) + '</div></section>';
+                tabs += '<section id="apud-menu-' + count_tab + '"><div>'
+                      + template_table('E', t.summ)
+                      + template_table('R', t.summ)
+                      + template_all_table(t.summ)
+                      + '</div></section>';
             } else {
                 nav  += '<a href="#" data-section="apud-menu-1" class="clicked">' +  t.summ.details[0].type + ' #1 </a>';
-                tabs += '<section id="apud-menu-1"><div>' + template_table('E', t.summ.details[0]) + template_table('R', t.summ.details[0]) +'</div></section>';
+                tabs += '<section id="apud-menu-1"><div>'
+                      + template_table('E', t.summ.details[0])
+                      + template_table('R', t.summ.details[0])
+                      + template_all_table(t.summ.details[0])
+                      +'</div></section>';
             }
             nav  += '</nav>';
             tabs += '</div>';
