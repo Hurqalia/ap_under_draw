@@ -48,7 +48,7 @@ function wrapper(plugin_info) {
     window.plugin.apunderdraw.doTheJob = function() {
         if (! window.plugin.apunderdraw.loadStorage('draw', 'plugin-draw-tools-layer')) {
             var img = '<img style="vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAGE0lEQVR4nMWXbWxUWRnHf885985Mh2lnpm8zLeVlS3mp1qGgFigLUyltpcTZalsENST4icSYXXenbDZt4uqaGDG4H0gaNVk0uyvuayK4omY1K1kN8SVGDYlb1oSlVGophYUy05nOzD1+mBkKkgWKLJzkn5Obe+7z/93nec7cOWKM4UEO9UDdAetuHhoaHKo1xpwpLS21EonE7NTFqbbh4eET9w1AKXV0W/c2a8OGDYyPj7sOHjz4uojUGWOcecea7wPxeDwWrgl/fGHFAiYPfZqyEs3SJUtruru7H5tvrLsC8Lg9z2/fvp333/o2iCIzcpSdu3ayds3a/SIS+lAB4k/En2pqavInT5+g1n0FEUX2naNYuSTRaFTv3r37BRHRHxqAz+d7ZmtHO653XwZRoDQoReZPzxKNbmZ5w/IO4KH5xLzjJhyID7wZi8X0xJ9fowTDuasaARBQyXdZ/N5x+vr7GBsb+62IrDLGzNwzgKHBodpgMNgeaVpF5o0DfP2tJD97+51r9+vq6vjFosMs7/why5YtWxyNRvuAF+4k9h2VIJ1On4g9EpN//+YAyhKS6dmb1vjKpph57zB7vryHdevWfV9EgvcEIB6Px+rr6xeXWWnCzgjKY1jguXmdLgFP4nUCfi+RSMTb39//XRGR/xvA4/a8snPXTsxf9qM9oD1QEbBvBijcc8a+SW9vL5GPRfYAdbeLf8se2Dew78CmTZvcF08dp7I0g3KDduWbvziMMWAMyg2I4DIjJNOjdG/frkZHR4+KSIsxJvNBHh+YgaHBoVqfz/fo+vXrKD33E3TR3A1ocByH9MwM01cuk5qZATW3Lb3T3yMSaaKxsbG5vb29964ykEqlXuvq6tJXTh6musRBuUEVAMoDLhJXp0kmk2AMOSeXNxfJ/z5wicTkr9jx+R2Mj48Pi8gbxpird5yBocGhT4bD4fVrm5uonv0D2g3KLSiPoN1QVeUhmUhgWxZ+v59PNJWBMwVMgboCtsZvvUQoVElDQ0Owq6vrK/PKQCaT+XV/f79MvP0M1XIe0pchO4lk00jmEjK7Cq01Pp+P8vJyFoaA2eP5aE5BGlKTAb74pf2cPXv2WyJyyBgzeVuA+BPxp1asWBH0qgT25I8x3ixSkkNZWbTOoWyHRaEslmXh9XqpqKhgVeMl8M0ZY+VnnxpmOvc40WjUGj07+qKIdBtjcrcsQYm35Bv9O/p4/8hWlMtBuxyUO4d252cEFoWyiAgiglIKEcmbuv5Hbih1tfGpLW00LGvoBJbcMgMD8YE3Ozo77MmTR6j2p1Au5wYIFCDgURM8950l+Wt9iY0bz4AUohWlC1JjXJx6hf4d/YyNjf1SRFYbY1I3ARS2Xfvmh1uZer4e5XdQdkEuB9EmbyJQVZmgd9M/uei2qK7KkMteZ2wXAQSUDXioqn6UQHCMNWvWrGhra+sDXrypBLOzs7/r+WyP/OvIV1lQkr3R3HaumaPgzGUPnY+1saV3JRs/s5H/XPTljV1FAAtUGVAJVAEhksmn2fWFXbS0tPxARAI3AMTj8ViwPLi84aE6aqd/jrKcvOz8LGru7dFw8nQZExPnKS8vp6YmzB//Wps3tgHLBRIAKgrm1UAIv/9vaJ2idUOrt6enZ/AGANuyf7p3717GXvocYhnEcuZ0/dsXAFY3JggEAgQCfmpra1kTuVxIuw34gfICQOU1AAij9XN0dnXSvLr5cRFZCKCTieSB5ubmzUsrNd5Tz6ILHX+9is1XrHFZaYbGlWkqq+Ejjf/go5FzuBcoED8QLAAUFSwogG3nuHAhRP2yiGRmM1tij8QOWbZtf62jcyszr27Dqw1SkLLyovhBLdQ/3/nQ2nKe1ofPz2058QGlhQwErpnmr0uBEsCmpubvhMO7CYfDzUCDpbUW5aQ5PXEF7SnDTuXQiRx6Oov25JAihGKuzkW5illRQNl1hgsAT2FR8dNpCppm5coMLreLUCjUYWUymawvUG1tfvoU92skEkkAZ2JiwifGGJ7c9+R5y7KCxpjb/oO5FyOVTs0cO3bsRyMjI7+X4ulYRFzAQvLFul9H5gvyoI/n/wXy2/DuK2rGkQAAAABJRU5ErkJggg=="/>';
-            alert(img + ' A form (polygon or circle) must be draw');
+            alert(img + ' Please draw a polygon or circle');
             return false;
         }
 
@@ -99,7 +99,7 @@ function wrapper(plugin_info) {
                         t.summerize();
                         break;
                     case 'polygon':
-                        if (!t.underPoligon()) {
+                        if (!t.underPolygon()) {
                             return;
                         }
                         t.countAPPortal();
@@ -113,7 +113,7 @@ function wrapper(plugin_info) {
             });
             t.render();
         };
-        APUnderDraw.prototype.latlngPoligon = function() {
+        APUnderDraw.prototype.latlngPolygon = function() {
             var t = this;
             $.each(t.draw_datas.latLngs, function(id, point) {
                 t._w_.draw_coords.lat.push(point.lat);	
@@ -125,10 +125,10 @@ function wrapper(plugin_info) {
             t._w_.draw_coords.lat.push(t.draw_datas.latLng.lat);	
             t._w_.draw_coords.lng.push(t.draw_datas.latLng.lng);
         };        
-        APUnderDraw.prototype.underPoligon = function() {
+        APUnderDraw.prototype.underPolygon = function() {
             var t = this;
             var found = false;
-            t.latlngPoligon();
+            t.latlngPolygon();
             $.each(window.portals, function(guid, r) { 
                 var i, j;
                 var lat_i, lat_j, lng_i, lng_j;
@@ -257,7 +257,7 @@ function wrapper(plugin_info) {
                 var title_team  = (team == 'R') ? 'Resistance' : 'Enlightened';
                 var table_color = (team == 'R') ? 'blue' : 'green';
                 var html = "<table class='audtable' style='margin-bottom:5px; border: 1px solid #20A8B1;'>" 
-                + "<thead style='background-color:" + table_color +";'><tr><th colspan='5'>You are " + title_team  + "</th></tr></thead>"
+                + "<thead style='background-color:" + table_color +";'><tr><th colspan='5'>" + title_team  + "</th></tr></thead>"
                 + "<tbody>"
                 + "<tr><td colspan='3'>Enemy portals : " + datas[team]['p'] + "&nbsp;&nbsp;Resos : " + datas[team]['r'] + "&nbsp;&nbsp;Links : " +  datas[team]['l'] + "&nbsp;&nbsp;Fields : " + datas[team]['f'] + "</td></tr>"
                 + "<tr><td>Resos destroyed &amp; capture+full deployed</td><td align='right'>" + datas[team]['ap'] + "</td><td>&nbsp;AP</td></tr>"
@@ -296,9 +296,9 @@ function wrapper(plugin_info) {
 
             if ($('#loadlevel').html() != 'all') {
                 html += "<div style='margin:5px; padding-top:10px; color:red'>"
-                + "<strong>Your attention please ! </strong><br />"
+                + "<strong>Attention! </strong><br />"
                 + "<font style='color:white'>Zoom level is actually <span style='color:yellow;'><b>" + $('#loadlevel').html() + "</b></span>. "
-                + "A part of portals is not visible and cannot be used to compute AP. Please adjust your zoom level and run AP Under Draw again.</font>"
+                + "Some of the portals are not visible and cannot be used to compute AP. Please adjust your zoom level and rerun AP Under Draw again.</font>"
                 + "</div>";
             }
 
@@ -326,7 +326,7 @@ function wrapper(plugin_info) {
     window.plugin.apunderdraw.setup  = function() {
         console.log('AP Under Draw loaded.');
         if (!localStorage['plugin-draw-tools-layer']) {
-            console.log('ERROR : draw-tools must be used');
+            console.log('ERROR : AP Under Draw requires draw-tools. Please install/enable the draw-tools plugin');
             return false;
         }
         window.plugin.apunderdraw.addButtons();
@@ -342,7 +342,7 @@ function wrapper(plugin_info) {
     // runrun
     var setup =  window.plugin.apunderdraw.setup;
 
-    setup.info = plugin_info; //add the script info data to the function as a property
+    setup.info = plugin_info; // add the script info data to the function as a property
     if(!window.bootPlugins) window.bootPlugins = [];
     window.bootPlugins.push(setup);
     // if IITC has already booted, immediately run the 'setup' function
