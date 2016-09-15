@@ -3,12 +3,12 @@
 // @name           IITC plugin:  Show AP under a polygon/draw area.
 // @author         hurqalia22, keithel
 // @category       Info
-// @version        0.1.6.20160914.001
+// @version        0.1.6.20160914.002
 // @namespace      https://github.com/keithel/ap_under_draw
 // @updateURL      https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.meta.js
 // @downloadURL    https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.user.js
 // @installURL     https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.user.js
-// @description    [keithel-2016-09-14-001] Show AP under a polygon/draw area.
+// @description    [keithel-2016-09-14-002] Neutral AP confusion reduction, resonators destroyed wording fix
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -19,7 +19,7 @@
 function wrapper(plugin_info) {
     if(typeof window.plugin !== 'function') window.plugin = function() {};
     plugin_info.buildName = 'keithel';
-    plugin_info.dateTimeVersion = '20160914.001';
+    plugin_info.dateTimeVersion = '20160914.002';
     plugin_info.pluginId = 'apunderdraw';
 
     var apud_css_ui = "data:text/css;base64,LmFwdWQtYm94IHsgZGlzcGxheTogYm94Ow0KZGlzcGxheTogZmxleDsNCm1hcmdpbjogLTEycHg7DQpwb3NpdGlvbjogcmVsYXRpdmU7DQp9DQouYXB1ZC1ib3gubW9iaWxlIHsNCmJhY2tncm91bmQ6IHRyYW5zcGFyZW50Ow0KcGFkZGluZzogMDsNCmJvcmRlcjogMCBub25lOw0KbWFyZ2luOiAwOw0KaGVpZ2h0OiAxMDAlOw0Kd2lkdGg6IDEwMCU7DQpsZWZ0OiAwOw0KdG9wOiAwOw0KcG9zaXRpb246IGFic29sdXRlOw0Kb3ZlcmZsb3c6IGF1dG87DQp9DQoNCi5hcHVkLWJveCBuYXYgew0KZGlzcGxheTogYmxvY2s7DQptaW4taGVpZ2h0OiAxNTBweDsNCndpZHRoOiAxNTBweDsNCmJvcmRlci1yaWdodDogMXB4IHNvbGlkICMyMEE4QjE7DQp2ZXJ0aWNhbC1hbGlnbjogdG9wOw0KZmxleC1zaHJpbms6IDA7DQpmbGV4LWdyb3c6IDA7DQpib3gtc2hyaW5rOiAwOw0KYm94LWdyb3c6IDA7DQp9DQouYXB1ZC1ib3ggLnRhYnMgew0KcG9zaXRpb246IHJlbGF0aXZlOw0KcGFkZGluZzogMTBweDsNCmZsZXgtc2hyaW5rOiAxOw0KZmxleC1ncm93OiAxOw0KYm94LXNocmluazogMTsNCmJveC1ncm93OiAxOw0KfQ0KLmFwdWQtYm94IG5hdiBhIHsNCmNvbG9yOiB3aGl0ZTsNCnBhZGRpbmc6IDAuNWVtOw0KZGlzcGxheTogYmxvY2s7DQp0ZXh0LWhlaWdodDogNDBweDsNCnRleHQtd2VpZ2h0OiBib2xkOw0KYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICMyMEE4QjE7DQp0ZXh0LWRlY29yYXRpb246IG5vbmU7DQp9DQouYXB1ZC1ib3ggbmF2IGE6bGFzdC1jaGlsZCB7DQpib3JkZXItYm90dG9tLXdpZHRoOiAwOw0KfQ0KLmFwdWQtYm94IG5hdiBhOiBob3ZlciB7DQpiYWNrZ3JvdW5kLWNvbG9yOiAjMDgzQzRFOw0KfQ0KLmFwdWQtYm94IG5hdiBhLmNsaWNrZWQgew0KYmFja2dyb3VuZC1jb2xvcjogIzIwQThCMTsNCn0NCi5hcHVkLWJveCBzZWN0aW9uIGgyIHsNCmZvbnQtc2l6ZTogMThweDsNCm1hcmdpbjogMCAwIDAuNGVtIDA7DQpwYWRkaW5nOiAwOw0KfQ0KLmFwdWQtYm94IHNlY3Rpb24gaDIgc21hbGwgew0KY29sb3I6ICNDQ0NDQ0M7DQp2ZXJ0aWNhbC1hbGlnbjogdG9wOw0KfQ0KLmFwdWQtYm94IGhyIHsNCmJvcmRlcjogMDsNCmhlaWdodDogMXB4Ow0KYmFja2dyb3VuZC1jb2xvcjogIzIwQThCMQ0KfQ0KLmFwdWQtYm94IHAgew0KbWFyZ2luOiAwLjVlbSAwOw0KfQ==";
@@ -263,7 +263,7 @@ function wrapper(plugin_info) {
                 + "<thead style='background-color:" + table_color +";'><tr><th colspan='5'>" + title_team  + "</th></tr></thead>"
                 + "<tbody>"
                 + "<tr><td colspan='3'>Enemy portals : " + datas[team]['p'] + "&nbsp;&nbsp;Resos : " + datas[team]['r'] + "&nbsp;&nbsp;Links : " +  datas[team]['l'] + "&nbsp;&nbsp;Fields : " + datas[team]['f'] + "</td></tr>"
-                + "<tr><td>Resos destroyed &amp; capture+full deployed</td><td align='right'>" + datas[team]['ap'] + "</td><td>&nbsp;AP</td></tr>"
+                + "<tr><td>Resonators destroyed, captured, fully deployed</td><td align='right'>" + datas[team]['ap'] + "</td><td>&nbsp;AP</td></tr>"
                 + "<tr><td>Links destroyed</td><td align='right'>" + (datas[team]['l'] * 187) + "</td><td>&nbsp;AP</td></tr>"
                 + "<tr><td>Fields destroyed</td><td align='right'>" + (datas[team]['f'] * 750) + "</td><td>&nbsp;AP</td></tr>"
                 + "<tr style='font-style:italic; color:#aaa;'><td>Total Enemy</td><td align='right'>" + (datas[team]['ap'] + (datas[team]['l'] * 187) + (datas[team]['f'] * 750) ) + "</td><td>&nbsp;AP</td></tr>"
