@@ -4,10 +4,10 @@
 // @author         hurqalia22, keithel
 // @category       Info
 // @version        0.1.6.20160914.002
-// @namespace      https://github.com/keithel/ap_under_draw
-// @updateURL      https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.meta.js
-// @downloadURL    https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.user.js
-// @installURL     https://raw.githubusercontent.com/keithel/ap_under_draw/master/ap_under_draw.user.js
+// @namespace      https://github.com/Hurqalia/ap_under_draw
+// @updateURL      https://raw.githubusercontent.com/Hurqalia/ap_under_draw/master/ap_under_draw.meta.js
+// @downloadURL    https://raw.githubusercontent.com/Hurqalia/ap_under_draw/master/ap_under_draw.user.js
+// @installURL     https://raw.githubusercontent.com/Hurqalia/ap_under_draw/master/ap_under_draw.user.js
 // @description    [keithel-2016-09-14-002] Neutral AP confusion reduction, resonators destroyed wording fix
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
@@ -18,7 +18,7 @@
 
 function wrapper(plugin_info) {
     if(typeof window.plugin !== 'function') window.plugin = function() {};
-    plugin_info.buildName = 'keithel';
+    plugin_info.buildName = 'hurqalia22';
     plugin_info.dateTimeVersion = '20160914.002';
     plugin_info.pluginId = 'apunderdraw';
 
