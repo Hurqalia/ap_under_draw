@@ -9,9 +9,13 @@
 // @downloadURL    https://raw.githubusercontent.com/Hurqalia/ap_under_draw/master/ap_under_draw.user.js
 // @installURL     https://raw.githubusercontent.com/Hurqalia/ap_under_draw/master/ap_under_draw.user.js
 // @description    [keithel-2016-09-14-002] Neutral AP confusion reduction, resonators destroyed wording fix
-// @include        https://www.ingress.com/intel*
-// @include        http://www.ingress.com/intel*
-// @match          https://www.ingress.com/intel*
-// @match          http://www.ingress.com/intel*
+// @include        https://*.ingress.com/intel*
+// @include        http://*.ingress.com/intel*
+// @match          https://*.ingress.com/intel*
+// @match          http://*.ingress.com/intel*
+// @include        https://*.ingress.com/mission/*
+// @include        http://*.ingress.com/mission/*
+// @match          https://*.ingress.com/mission/*
+// @match          http://*.ingress.com/mission/*
 // @grant          none
 // ==/UserScript==
